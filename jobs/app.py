@@ -58,7 +58,7 @@ def employer(employer_id):
         "SELECT * FROM employer WHERE id=?", [employer_id], Single=True
     )
     jobs = execute_sql(
-        "SELECT job.id, job.title, job.description, job.salary, employer.id as employer_id, employer.name as employer_name FROM job JOIN employer ON employer.id = job.employer_id WHERE employer.id = ?",
+        "SELECT job.id, job.title, job.description, job.salary FROM job JOIN employer ON employer.id = job.employer_id WHERE employer.id = ?",
         [employer_id],
     )
     reviews = execute_sql(
